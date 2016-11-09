@@ -1,16 +1,39 @@
-#
-# Class diary  
-#
-# Create program for handling lesson scores.
-# Use python to handle student (highscool) class scores, and attendance.
-# Make it possible to:
-# - Get students total average score (average across classes)
-# - get students average score in class
-# - hold students name and surname
-# - Count total attendance of student
-# The default interface for interaction should be python interpreter.
-# Please, use your imagination and create more functionalities. 
-# Your project should be able to handle entire school.
-# If you have enough courage and time, try storing (reading/writing) 
-# data in text files (YAML, JSON).
-# If you have even more courage, try implementing user interface.
+#import student
+#class obec(object):
+ #   def __init__(self)
+       #tu powinny byc pary data-lista lekcji 1/0 
+
+
+class student(object):
+    def __init__(self,name,sname):
+        self.name=name
+        self.sname=sname
+        self.scores=[]
+
+    def __str__(self):
+        stud_str="imie: "+self.name+"\n"
+	stud_str+="nazwisko: "+self.sname+"\n" 
+        stud_str+="oceny: "
+        stud_str+=''.join(str(e)+"," for e in self.scores)+"\n"
+        stud_str+="srednia: "+str(self.ret_avr())
+        return stud_str
+
+    def add_score(self,x):
+        self.scores.append(x)
+
+    def ret_avr(self):
+        avr=0    
+        for x in self.scores:
+            avr+=x
+        avr/=len(self.scores)
+
+s1=student("janek","iks") 
+s1.add_score(4)
+s1.add_score(3)
+s1.add_score(5)
+s1.add_score(5)
+s1.add_score(2)
+s1.add_score(4)
+s1.add_score(4)
+
+print s1 
