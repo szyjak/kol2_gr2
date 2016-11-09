@@ -26,6 +26,8 @@ class student(object):
         for x in self.scores:
             avr+=x
         avr/=len(self.scores)
+#coś się popsulo
+
 
 s1=student("janek","iks") 
 s1.add_score(4)
